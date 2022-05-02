@@ -2,9 +2,7 @@ import React,{useEffect, useState} from 'react';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { IconButton, Typography, styled } from '@mui/material';
 import Card from '@mui/material/Card';
-// import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
-// import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import StartIcon from '@mui/icons-material/Start';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -14,7 +12,6 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import $ from 'jquery';
 import './Home.css'
 import hindijson from '../Hindi_Alphabets'
-// import LoadingSpin from "react-loading-spin";
 const host = "http://localhost:5000";
 const Input = styled('input')({
   display: 'none',
@@ -75,13 +72,10 @@ export default function Home() {
     console.log('image: ', image)
     console.log('image name: ',imageName)
 
-    // let jsondata = {image_data: imageName};
-    // console.log(JSON.stringify(jsondata));
     var response = await $.ajax({
       mode: 'no-cors',
       type: 'POST',
       url: url,
-      // body: JSON.stringify(jsondata),
       contentType: "application/json",
       dataType: "json",
       success: function(resultData) { console.log("Results ready to display") }
@@ -149,16 +143,6 @@ export default function Home() {
           </CardActions>
     </Card>
         </Grid></>: (showLoading) ? <div className="load-spin" style={{margin: '8% auto'}}>
-        {/* <LoadingSpin
-            duration="2s"
-            width="10px"
-            timingFunction="ease-in-out"
-            direction="normal"
-            size="70px"
-            primaryColor="green"
-            secondaryColor="#333"
-            numberOfRotationsInAnimation={2}
-        /> */}
         <CircularProgress color="primary" variant={"indeterminate"} thickness={6} size={100} />
     </div>: null}
       </Grid></> : null}
