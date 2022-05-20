@@ -1,1 +1,1 @@
-# DWDM-Project-Frontend
+# Image Captioning Project
