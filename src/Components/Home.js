@@ -50,24 +50,9 @@ export default function Home() {
     setShowLoading(false);
   }, [image, imageName]);
 
-  const removeImage = () => {
-    setShowImage(false);
-    setImage("");
-    setImageName("");
-    removeResults();
-  };
-
   const removeResults = () => {
     setShowResults(false);
     setShowLoading(false);
-  };
-
-  const blurBg = (param) => {
-    if (param === true) {
-      document.body.style.opacity = 0.2;
-    } else {
-      document.body.style.opacity = 1;
-    }
   };
 
   const handleResults = async () => {
@@ -87,21 +72,14 @@ export default function Home() {
 
     fetch(url, requestOptions)
       .then((response) => response.text())
-      .then((result) => {console.log(result);
-                          setPrediction(result)})
+      .then((result) => {
+        console.log(result);
+        setPrediction(result);
+        setShowLoading(false);
+        setShowResults(true);
+      })
       .catch((error) => console.log("error", error));
-
-    // setPrediction(pred['data']);
-
-    setTimeout(() => {
-      setShowLoading(false);
-      setShowResults(true);
-    }, 1500);
   };
-
-  useEffect(() => {
-    // blurBg(showLoading)
-  }, [showLoading]);
 
   return (
     <>
@@ -132,7 +110,6 @@ export default function Home() {
                   B.Tech Project 2022
                 </Typography>
               </div>
-              {/* color:"#eceff1" */}
               <div id="subheading" style={{ padding: "auto" }}>
                 <Typography
                   gutterBottom
@@ -212,7 +189,8 @@ export default function Home() {
         <>
           {showResults ? (
             <>
-              <Typing speed={50} hideCursor>
+              {/* <Typing speed={50} hideCursor> */}
+              <div style={{ margin: "3rem auto" }}>
                 <Typography
                   gutterBottom
                   variant="h5"
@@ -224,41 +202,10 @@ export default function Home() {
                     fontSize: "2rem",
                   }}
                 >
-                  {/* This is the caption of this image */}
                   {prediction}
                 </Typography>
-              </Typing>
-              {/* <ReactTypingEffect text={["This is the caption of this image"]} loop={false} displayTextRenderer={(text) => {return (<Typography
-                  gutterBottom
-                  variant="h5"
-                  align="center"
-                  sx={{
-                    mx: "auto",
-                    fontFamily: "raleway-bold",
-                    fontWeight: "600",
-                    fontSize: "2rem",
-                  }}
-                >{text}
-                </Typography>)}}/> */}
-              {/* <ReactTypingEffect
-        text={["Hello.", "World!!!"]}
-        cursorRenderer={cursor => <h1>{cursor}</h1>}
-        displayTextRenderer={(text, i) => {
-          return (
-            <h1>
-              {text.split('').map((char, i) => {
-                const key = `${i}`;
-                return (
-                  <span
-                    key={key}
-                    style={i%2 === 0 ? { color: 'magenta'} : {}}
-                  >{char}</span>
-                );
-              })}
-            </h1>
-          );
-        }}        
-      /> */}
+              </div>
+              {/* </Typing> */}
             </>
           ) : showLoading ? (
             <div id="load-spin">
