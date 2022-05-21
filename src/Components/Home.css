@@ -1,17 +1,17 @@
-body {
-    background-color: #212121;
-}
+/* body {
+    background-color: #757575;
+} */
 
-#heading {
+#head {
     margin: 2% auto;
     width: 70%;
 }
 
 .container {
     margin: 2% auto;
-    background-color: #3f51b5;
-    border: 1px solid black;
-    width: 70%;
+    /* background-color: #3f51b5; */
+    /* border: 1px solid black; */
+    width: 55%;
     padding: 2% auto;
 }
 
@@ -22,7 +22,7 @@ body {
 }
 
 #fileupload {
-    margin: auto;
+    margin: 0.5rem auto;
     align-items: center;
 }
 
@@ -34,4 +34,9 @@ body {
 #labelbutton {
     margin: auto;
     width: 100%;
+}
+
+#load-spin  {
+    margin: 3.5% auto;
+    text-align: center;
 }
