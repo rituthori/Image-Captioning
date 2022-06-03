@@ -107,7 +107,7 @@ export default function Home() {
                     fontSize: "4rem",
                   }}
                 >
-                  B.Tech Project 2022
+                  Capstone Project
                 </Typography>
               </div>
               <div id="subheading" style={{ padding: "auto" }}>
@@ -122,7 +122,7 @@ export default function Home() {
                     fontSize: "2rem",
                   }}
                 >
-                  Image Captioning
+                  Generating Image Caption using Deep Learning
                 </Typography>
               </div>
             </Grid>
